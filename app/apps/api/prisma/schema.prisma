@@ -1,21 +1,32 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+datasource db {
+  provider = "sqlite"
+}
 generator client {
   provider = "prisma-client"
   output   = "../generated/prisma"
+  moduleFormat    = "cjs"
 }
 
-datasource db {
-  provider = "sqlite" 
+ generator seeding {
+  provider = "prisma-client-js"
+  seed     = "prisma/seed.ts"
 }
+
+// model PrismaClients {
+//   seed = "prisma/seed.ts"
+// }
+
+
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
   name      String
   bio       String?
   avatar    String?
-  password  String
+  password  String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   posts     Post[]
