@@ -12,6 +12,7 @@ import { UserModule } from './user/user.module';
 import { CommentModule } from './comment/comment.module';
 import { TagModule } from './tag/tag.module';
 import { LikeModule } from './like/like.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -25,7 +26,8 @@ import { LikeModule } from './like/like.module';
      UserModule,
      CommentModule,
      TagModule,
-     LikeModule],
+     LikeModule,
+     AuthModule],
   controllers: [AppController],
   providers: [AppService, PrismaService],
 })
