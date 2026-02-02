@@ -16,5 +16,7 @@ export class AuthService {
     if (!passwordMatch) throw new UnauthorizedException('Invalid credentials');
     return user;
   }
-  
+  async generateToken() {
+    // Token generation logic to be implemented
+  }
 }
